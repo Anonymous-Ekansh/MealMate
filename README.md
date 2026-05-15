@@ -3,7 +3,7 @@
 MealMate is a cross-platform mobile app for planning meals, browsing a shared food catalog, and coordinating with friends through groups. Built with **Expo**, **React Native**, and **Supabase**.
 
 <p align="center">
-  <img src="assets/icon.png" alt="MealMate logo" width="120" />
+  <img src="assets/icon.png" alt="MealMate — Share Meals. Share Moments." width="160" />
 </p>
 
 ## Features
