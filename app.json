@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "MealMate",
+    "slug": "MealMate",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "scheme": "mealmate",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#F4A024"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mealmate.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#F4A024"
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "com.mealmate.app"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-web-browser"
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "aff86d2f-1f3d-4350-b86b-863d5d987ed7"
+      }
+    }
+  }
+}
