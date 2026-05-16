@@ -70,6 +70,38 @@ export function useRealtimeGroupMembers(
           table: "group_members",
           filter: "group_id=eq." + groupId,
         },
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [groupId]);
+}
+
+/**
+ * Subscribe to changes in user's group memberships.
+ */
+export function useRealtimeUserGroupMemberships(
+  userId: string | undefined,
+  onMembershipChange: () => void
+) {
+  const callbackRef = useRef(onMembershipChange);
+  callbackRef.current = onMembershipChange;
+
+  useEffect(() => {
+    if (!userId) return;
+
+    const channel = supabase
+      .channel("user-group-memberships-" + userId)
+      .on(
+        "postgres_changes",
+        {
+          event: "*",
+          schema: "public",
+          table: "group_members",
+          filter: "user_id=eq." + userId,
+        },
         () => {
           callbackRef.current();
         }
@@ -79,5 +111,5 @@ export function useRealtimeGroupMembers(
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [groupId]);
+  }, [userId]);
 }

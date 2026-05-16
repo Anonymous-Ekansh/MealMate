@@ -33,6 +33,7 @@ import { GroupCard } from "../../components/GroupCard";
 import { CreateGroupModal } from "../../components/CreateGroupModal";
 import { Toast } from "../../components/Toast";
 import { AppIcon } from "../../components/AppIcon";
+import { useRealtimeUserGroupMemberships } from "../../hooks/useRealtime";
 import type { Profile } from "../../lib/types";
 
 export default function GroupsScreen() {
@@ -60,6 +61,12 @@ export default function GroupsScreen() {
     queryKey: ["myGroups", user?.id],
     queryFn: () => getMyGroups(user!.id),
     enabled: !!user?.id,
+  });
+
+  // Listen for real-time membership changes to automatically refresh the groups list
+  useRealtimeUserGroupMemberships(user?.id, () => {
+    queryClient.invalidateQueries({ queryKey: ["myGroups"] });
+    queryClient.invalidateQueries({ queryKey: ["groups"] });
   });
 
   // Fetch member avatars for each group
