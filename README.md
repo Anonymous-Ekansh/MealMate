@@ -181,10 +181,6 @@ Category cards use per-category accent colors defined in `constants/categoryThem
 4. Push to the branch (`git push origin feature/my-feature`)
 5. Open a Pull Request
 
-## License
-
-This project is private. Add a license file (e.g. MIT) if you plan to open-source it.
-
 ## Acknowledgments
 
 - [Expo](https://expo.dev)
